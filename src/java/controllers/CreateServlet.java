@@ -23,7 +23,7 @@ import models.UsersJpaController;
  *
  * @author hoang
  */
-@WebServlet(name = "CreateServlet", urlPatterns = {"/CreateServlet"})
+@WebServlet(name = "CreateServlet", urlPatterns = {"/admin/CreateServlet"})
 public class CreateServlet extends HttpServlet {
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("WCD_DemoJPAPU");

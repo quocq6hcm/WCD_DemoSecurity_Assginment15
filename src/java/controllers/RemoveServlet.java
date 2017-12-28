@@ -24,7 +24,7 @@ import models.exceptions.NonexistentEntityException;
  *
  * @author hoang
  */
-@WebServlet(name="RemoveServlet", urlPatterns={"/RemoveServlet"})
+@WebServlet(name="RemoveServlet", urlPatterns={"/admin/RemoveServlet"})
 public class RemoveServlet extends HttpServlet {
    
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("WCD_DemoJPAPU");
@@ -36,6 +36,7 @@ public class RemoveServlet extends HttpServlet {
         try {
             db.destroy(request.getParameter("username"));
             response.sendRedirect("ListServlet");
+//            request.getRequestDispatcher("ListServlet").forward(request, response);
         } catch (NonexistentEntityException ex) {
             Logger.getLogger(RemoveServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

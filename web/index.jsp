@@ -29,8 +29,8 @@
                     }
 
                 });
-            }
-            ;
+            };
+            
 
             function HienThiFullName() {
                 $.ajax({
@@ -46,8 +46,9 @@
                     }
 
                 });
-            }
-            ;
+            };
+            
+            
         </script>
     </head>
     <body >
@@ -89,7 +90,7 @@
                             <td>${e.email}</td>
                             <td>${e.level}</td>
                             <td>
-                                <a href="RemoveServlet?username=${e.username}"  onclick="return confirm('are you sure delete user?');">Delete</a> |
+                                <a href="admin/RemoveServlet?username=${e.username}"  onclick="return confirm('are you sure delete user?');">Delete</a> |
                                 <a href="UpdateServlet?username=${e.username}">Update</a>
                             </td>
                         </tr>
