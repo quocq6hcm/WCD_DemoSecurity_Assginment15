@@ -53,7 +53,7 @@
     </head>
     <body >
 
-        <form action="#" method="get">
+<!--        <form action="#" method="get">
             Username: <input type="text" id="search" name="search"/>
             <input type="button" value="Search" onclick="HienThiUserName()">
         </form>
@@ -63,7 +63,7 @@
         <form action="#" method="get">
             Fullname: <input type="text" id="searchF" name="searchF" />
             <input type="button" value="Search" onclick="HienThiFullName()">
-        </form>
+        </form>-->
 
         <h3>Hello ${fullname} </h3> <h3><a href="LogoutServlet">Logout</a></h3>
         <div id="ajaxListServletResponse" >
@@ -86,11 +86,11 @@
                         <tr>
                             <td>${e.username}</td>
                             <td>${e.fullname}</td>
-                            <td><img src="resources/images/${e.photo}" alt="${e.photo}" height="80px"></td>
+                            <td><img src="../resources/images/${e.photo}" alt="${e.photo}" height="80px"></td>
                             <td>${e.email}</td>
                             <td>${e.level}</td>
                             <td>
-                                <a href="admin/RemoveServlet?username=${e.username}"  onclick="return confirm('are you sure delete user?');">Delete</a> |
+                                <a href="../admin/RemoveServlet?username=${e.username}"  onclick="return confirm('are you sure delete user?');">Delete</a> |
                                 <a href="UpdateServlet?username=${e.username}">Update</a>
                             </td>
                         </tr>

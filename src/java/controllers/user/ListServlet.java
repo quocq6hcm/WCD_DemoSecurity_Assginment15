@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package controllers.user;
 
 import entities.Users;
 import java.io.IOException;
@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,7 +24,7 @@ import models.UsersJpaController;
  *
  * @author hoang
  */
-@WebServlet(name = "ListServlet", urlPatterns = {"/admin/ListServlet"})
+@WebServlet("/ListServlet")
 public class ListServlet extends HttpServlet {
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("WCD_DemoJPAPU");
@@ -34,7 +35,11 @@ public class ListServlet extends HttpServlet {
             throws ServletException, IOException {
         
         request.setAttribute("users", db.findUsersEntities());
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        
+       
+                    request.getRequestDispatcher("/views/user/index.jsp").forward(request, response);
+ 
+        
     }
 
     @Override

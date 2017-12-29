@@ -22,8 +22,8 @@ CREATE TABLE Users
 
 INSERT INTO Users VALUES ('aptech01', '12345', 'aptech', 'aptech.jpg', 'aptech@gmai.com', 1);
 INSERT INTO Users VALUES ('dieuly', '123', N'Lý Quan Diệu', 'dieuly.jpg', 'DieuLy@gmai.com', 2);
-INSERT INTO Users VALUES ('obama', '123', 'Donal Trump', 'trump.jpg', 'Trump@gmai.com', 2);
-INSERT INTO Users VALUES ('trump', '123', 'Obama', 'obama.jpg', 'Obama@gmai.com', 1);
+INSERT INTO Users VALUES ('trump', '123', 'Donal Trump', 'trump.jpg', 'Trump@gmai.com', 2);
+INSERT INTO Users VALUES ('obama', '123', 'Obama', 'obama.jpg', 'Obama@gmai.com', 1);
 
 SELECT *
 FROM Users;

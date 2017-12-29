@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package controllers;
+package controllers.admin;
 
 import entities.Users;
 import java.io.IOException;

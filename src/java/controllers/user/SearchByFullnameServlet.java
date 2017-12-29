@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package controllers.user;
 
-package controllers;
-
+import entities.Users;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.servlet.ServletException;
@@ -18,36 +18,40 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import models.UsersJpaController;
-import models.exceptions.NonexistentEntityException;
 
 /**
  *
  * @author hoang
  */
-@WebServlet(name="RemoveServlet", urlPatterns={"/admin/RemoveServlet"})
-public class RemoveServlet extends HttpServlet {
-   
+@WebServlet(name = "SearchByFullnameServlet", urlPatterns = {"/SearchByFullnameServlet"})
+public class SearchByFullnameServlet extends HttpServlet {
+
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("WCD_DemoJPAPU");
     UsersJpaController db = new UsersJpaController(emf);
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        try {
-            db.destroy(request.getParameter("username"));
-            response.sendRedirect("ListServlet");
-//            request.getRequestDispatcher("ListServlet").forward(request, response);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(RemoveServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    } 
+            throws ServletException, IOException {
+        List<Users> list = new ArrayList();
+        String temp = request.getParameter("searchF");
+        if (!temp.isEmpty()) {
+                    list = db.runQuery("SELECT u FROM Users u WHERE u.fullname like '%"+temp+"%'");
 
-  
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+        }
+        else
+        {
+              list = db.findUsersEntities();
+        }
         
+        request.setAttribute("users", list);
+          request.getRequestDispatcher("views/user/ListUser.jsp").forward(request, response);
+
+//        response.sendRedirect("index.jsp");
     }
 
-   
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    }
+
 }

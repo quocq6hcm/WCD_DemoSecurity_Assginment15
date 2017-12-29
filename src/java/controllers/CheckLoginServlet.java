@@ -24,7 +24,9 @@ public class CheckLoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if (request.isUserInRole("admin")) {
-            response.sendRedirect("ListServlet");
+            response.sendRedirect("admin/ListServlet");
+//             response.sendRedirect("ListServlet");
+
         } else if (request.isUserInRole("user")) {
             response.sendRedirect("ListServlet");
 

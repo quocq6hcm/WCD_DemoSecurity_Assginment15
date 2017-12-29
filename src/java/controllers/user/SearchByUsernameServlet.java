@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package controllers.user;
 
 import entities.Users;
 import java.io.IOException;
@@ -43,7 +43,7 @@ public class SearchByUsernameServlet extends HttpServlet {
         }
         
         request.setAttribute("users", list);
-                request.getRequestDispatcher("ListUser.jsp").forward(request, response);
+                request.getRequestDispatcher("views/user/ListUser.jsp").forward(request, response);
 
 //        response.sendRedirect("index.jsp");
 
